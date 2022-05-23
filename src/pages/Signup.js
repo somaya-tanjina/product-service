@@ -33,12 +33,12 @@ const Signup = () => {
 
         console.log("updating");
     };
-  if (guser) {
+  if (guser ||user) {
     navigate('/')
   }
       return (
-          <div className="flex  justify-center items-center">
-              <div className="card lg:w-96 bg-base-100  shadow-xl">
+          <div className="flex bg-violet-100  justify-center items-center">
+              <div className="card lg:w-96 bg-base-100  my-5 shadow-xl">
                   <div className="card-body ">
                       <div className=" mx-auto w-24 lg:w-36">
                           <img className="w-full" src={img} alt="" />

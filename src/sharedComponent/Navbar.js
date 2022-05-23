@@ -1,13 +1,21 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
+import auth from "../firebase.init";
 
 const Navbar = ({ children }) => {
+    const [user] = useAuthState(auth);
+    const handleSignOut = () => {
+        signOut(auth);
+        localStorage.removeItem("accessToken");
+    };
     return (
         <div class="drawer drawer-end">
             <input id="my-drawer-3" type="checkbox" class="drawer-toggle h-6" />
             <div class="drawer-content flex flex-col">
                 {/* <!-- Navbar --> */}
-                <div class="w-full sticky navbar bg-light-300 ">
+                <div class="w-full sticky top-0 z-10 navbar bg-white  ">
                     <div class="flex-1 px-2 mx-2">Navbar Title</div>
                     <div class="flex-none lg:hidden">
                         <label
@@ -43,20 +51,40 @@ const Navbar = ({ children }) => {
                                     About
                                 </NavLink>
                             </li>
-                            <li>
-                                <NavLink to="/dashboard" className="rounded-lg">
-                                    Dashboard
-                                </NavLink>
-                            </li>
+
+                            {user && (
+                                <li>
+                                    <NavLink
+                                        className=" focus:text-white  focus:bg-[#3A4256]"
+                                        to={"/dashboard"}
+                                    >
+                                        Dashboard
+                                    </NavLink>
+                                </li>
+                            )}
+
                             <li>
                                 <NavLink to="/contact" className="rounded-lg">
                                     Contact
                                 </NavLink>
                             </li>
+
                             <li>
-                                <NavLink to="/login" className="rounded-lg">
-                                    Login
-                                </NavLink>
+                                {user ? (
+                                    <button
+                                        onClick={handleSignOut}
+                                        className="btn btn-ghost"
+                                    >
+                                        Sign Out
+                                    </button>
+                                ) : (
+                                    <NavLink
+                                        className=" focus:text-white  focus:bg-[#3A4256]"
+                                        to={"/login"}
+                                    >
+                                        Log In
+                                    </NavLink>
+                                )}
                             </li>
                             <li>
                                 <NavLink to="/signup" className="rounded-lg">
@@ -106,20 +134,34 @@ const Navbar = ({ children }) => {
                             About
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/dashboard" className="rounded-lg">
-                            Dashboard
-                        </NavLink>
-                    </li>
+                    {user && (
+                        <li>
+                            <NavLink to="/dashboard" className="rounded-lg">
+                                Dashboard
+                            </NavLink>
+                        </li>
+                    )}
                     <li>
                         <NavLink to="/contact" className="rounded-lg">
                             Contact
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/login" className="rounded-lg">
-                            Login
-                        </NavLink>
+                        {user ? (
+                            <button
+                                onClick={handleSignOut}
+                                className="btn btn-ghost"
+                            >
+                                Sign Out
+                            </button>
+                        ) : (
+                            <NavLink
+                                className=" focus:text-white  focus:bg-[#3A4256]"
+                                to={"/login"}
+                            >
+                                Log In
+                            </NavLink>
+                        )}
                     </li>
                     <li>
                         <NavLink to="/signup" className="rounded-lg">
