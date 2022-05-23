@@ -4,10 +4,10 @@ import { NavLink } from "react-router-dom";
 const Navbar = ({ children }) => {
     return (
         <div class="drawer drawer-end">
-            <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+            <input id="my-drawer-3" type="checkbox" class="drawer-toggle h-6" />
             <div class="drawer-content flex flex-col">
                 {/* <!-- Navbar --> */}
-                <div class="w-full navbar bg-light-300 ">
+                <div class="w-full sticky navbar bg-light-300 ">
                     <div class="flex-1 px-2 mx-2">Navbar Title</div>
                     <div class="flex-none lg:hidden">
                         <label
