@@ -79,7 +79,7 @@ const Navbar = ({ children }) => {
                                     </button>
                                 ) : (
                                     <NavLink
-                                        className=" focus:text-white  focus:bg-[#3A4256]"
+                                        className="rounded-lg"
                                         to={"/login"}
                                     >
                                         Log In

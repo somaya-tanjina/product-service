@@ -40,7 +40,7 @@ const Signup = () => {
           <div className="flex bg-violet-100  justify-center items-center">
               <div className="card lg:w-96 bg-base-100  my-5 shadow-xl">
                   <div className="card-body ">
-                      <div className=" mx-auto w-24 lg:w-36">
+                      <div className=" mx-auto w-24 ">
                           <img className="w-full" src={img} alt="" />
                       </div>
                       <h2 className="text-center text-2xl font-bold">
@@ -54,7 +54,7 @@ const Signup = () => {
                               <input
                                   type="text"
                                   placeholder="Your Name"
-                                  className="input input-bordered w-full max-w-xs"
+                                  className="input input-bordered focus:outline-blue-400 input-sm w-full max-w-xs"
                                   {...register("name", {
                                       required: {
                                           value: true,
@@ -78,7 +78,7 @@ const Signup = () => {
                               <input
                                   type="email"
                                   placeholder="Your Email"
-                                  className="input input-bordered w-full max-w-xs"
+                                  className="input input-bordered focus:outline-blue-400 input-sm w-full max-w-xs"
                                   {...register("email", {
                                       required: {
                                           value: true,
@@ -110,7 +110,7 @@ const Signup = () => {
                               <input
                                   type="password"
                                   placeholder="Password"
-                                  className="input input-bordered w-full max-w-xs"
+                                  className="input input-bordered focus:outline-blue-400 input-sm w-full max-w-xs"
                                   {...register("password", {
                                       required: {
                                           value: true,
@@ -139,7 +139,7 @@ const Signup = () => {
 
                           {/* {signInError} */}
                           <input
-                              className="btn bg-cyan-600 hover:bg-[#00B4FF] border-none w-full max-w-xs text-white"
+                              className="btn btn-sm bg-cyan-600 hover:bg-[#00B4FF] border-none  w-full max-w-xs text-white"
                               type="submit"
                               value="Sign Up"
                           />
@@ -160,7 +160,7 @@ const Signup = () => {
                       <div className="divider">OR</div>
                       <button
                           onClick={() => signInWithGoogle()}
-                          className="btn hover:bg-[#00B4FF] border-cyan-600 hover:border-none  btn-outline"
+                          className="btn hover:bg-[#00B4FF] border-cyan-600 hover:border-none btn-sm  btn-outline"
                       >
                           Continue with Google
                       </button>

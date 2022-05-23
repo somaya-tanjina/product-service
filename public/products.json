@@ -1,0 +1,65 @@
+[
+    {
+        "_id": 0,
+        "price": "628b6b66d49695e7fb437b0d",
+        "img": "https://i.ibb.co/YQW7srq/Adata-4-GB-DDR4-2666-BUS-Desktop-Ram.jpg",
+        "availableQuantity": 27,
+        "minimumQuantity": 34,
+        "name": "Adata-4-GB-DDR4-2666-BUS-Desktop-Ram",
+        "description": "Officia duis ea nostrud eiusmod amet occaecat dolor quis esse ullamco. Lorem non veniam duis et anim. Do Lorem sit aliquip sunt nisi sunt ipsum amet cillum.\r\n"
+    },
+    {
+        "_id": 1,
+        "price": "628b6b6684ad56022164900e",
+        "img": "https://i.ibb.co/YQW7srq/Adata-4-GB-DDR4-2666-BUS-Desktop-Ram.jpg",
+        "availableQuantity": 21,
+        "minimumQuantity": 28,
+        "name": "Collier",
+        "description": "Reprehenderit quis sit aute aliquip est quis veniam nisi ullamco nisi id. Veniam ea quis nisi veniam eu ullamco reprehenderit est occaecat minim exercitation. Non sunt aliqua tempor ea. Cupidatat aliqua cupidatat fugiat fugiat enim magna labore enim ullamco ea reprehenderit magna. Fugiat sunt ut commodo labore eiusmod id ut laboris est Lorem. Veniam laboris laboris nisi eiusmod ex ex cillum in ipsum duis minim commodo.\r\n"
+    },
+    {
+        "_id": 2,
+        "price": "628b6b660c06bdc5d47c6a4f",
+        "img": "https://i.ibb.co/sbFQqqg/Antec-Atom-V450-Non-Modular-IN-SMPS-Gaming-Power-Supply.jpg",
+        "availableQuantity": 33,
+        "minimumQuantity": 36,
+        "name": "Sophia",
+        "description": "Esse id adipisicing ullamco incididunt aliquip mollit minim. Consectetur pariatur mollit deserunt enim minim laboris dolor incididunt id magna. Nostrud esse proident consequat aliqua eu commodo adipisicing id Lorem et do sit minim fugiat. Nisi culpa laboris dolore qui labore culpa consequat in consequat elit culpa ex incididunt. Sint in duis fugiat excepteur est aliqua enim amet deserunt reprehenderit eiusmod sint veniam. Ea fugiat ea aliquip tempor voluptate sit mollit. Excepteur id reprehenderit eu esse ut amet excepteur aliqua eu consequat tempor et.\r\n"
+    },
+    {
+        "_id": 3,
+        "price": "628b6b66d97b7d1b4defff30",
+        "img": "https://i.ibb.co/5h0Mnr9/cryorig-socket-str4-kit.jpg",
+        "availableQuantity": 40,
+        "minimumQuantity": 20,
+        "name": "Michael",
+        "description": "Ullamco laborum id exercitation non ut nostrud amet est nostrud. Lorem occaecat veniam cupidatat nulla cupidatat non veniam non consequat qui labore. Excepteur adipisicing veniam qui adipisicing aute. Ex nisi ad consectetur pariatur est nulla pariatur ea officia eu reprehenderit id proident elit.\r\n"
+    },
+    {
+        "_id": 4,
+        "price": "628b6b66cdfc38965a392a83",
+        "img": "https://i.ibb.co/gZJk1c7/Intel-Core-i3-2120-2nd-Gen-Processor-Tray.jpg",
+        "availableQuantity": 22,
+        "minimumQuantity": 33,
+        "name": "Pitts",
+        "description": "Laborum velit non commodo ut dolor. Aliquip velit duis nulla amet magna quis labore. Consequat sit adipisicing adipisicing voluptate velit. Consectetur quis do enim cupidatat officia amet et proident sunt veniam id ullamco Lorem. Cillum sint veniam excepteur occaecat magna mollit consectetur.\r\n"
+    },
+    {
+        "_id": 5,
+        "price": "628b6b666fbd11503ba126cf",
+        "img": "https://i.ibb.co/xXGJNX1/Max-Green-2810-BR-ATX-Casing.jpg",
+        "availableQuantity": 31,
+        "minimumQuantity": 33,
+        "name": "Anthony",
+        "description": "Lorem sint laborum aliqua qui dolore consectetur minim sit nisi ullamco tempor. Id ut eiusmod cillum occaecat ex ex adipisicing consequat ut fugiat ad ut ullamco sunt. Ut nulla anim labore Lorem Lorem deserunt. Reprehenderit in nulla tempor aliquip non exercitation nostrud et aliquip cillum. Commodo non eiusmod adipisicing nulla ullamco enim sunt. Fugiat dolore eu consequat aliqua Lorem cillum ipsum.\r\n"
+    },
+    {
+        "_id": 6,
+        "price": "628b6b66321ab00200945600",
+        "img": "https://i.ibb.co/YQW7srq/Adata-4-GB-DDR4-2666-BUS-Desktop-Ram.jpg",
+        "availableQuantity": 32,
+        "minimumQuantity": 25,
+        "name": "Morris",
+        "description": "Nisi labore fugiat tempor voluptate dolor velit fugiat dolore dolore esse laborum. Duis laborum anim culpa ex aliquip. Cillum ex mollit ut incididunt adipisicing ex proident aliquip tempor qui. Qui tempor in ullamco culpa proident proident duis pariatur sit. Laboris irure irure magna velit nostrud veniam aute sint velit duis do enim exercitation. Pariatur velit exercitation ea veniam consequat est anim deserunt anim. Cillum dolor laboris ex irure nisi proident laborum aliqua tempor enim culpa laborum cupidatat adipisicing.\r\n"
+    }
+]

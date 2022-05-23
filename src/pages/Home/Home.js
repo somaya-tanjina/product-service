@@ -1,9 +1,10 @@
 import React from 'react';
+import Products from './Products';
 
 const Home = () => {
   return (
     <div>
-      <button className='btn btn-primary'>hello</button>
+     <Products></Products>
     </div>
   );
 };
