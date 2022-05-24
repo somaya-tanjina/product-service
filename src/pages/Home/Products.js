@@ -22,9 +22,9 @@ const Products = () => {
     }
 
     return (
-        <div className="px-28">
+        <div className="px-4 lg:px-28">
             <h1>{data.length}</h1>
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {[...data]
                     .reverse()
                     .slice(0, 6)

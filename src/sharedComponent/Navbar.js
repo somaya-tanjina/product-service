@@ -16,12 +16,14 @@ const Navbar = ({ children }) => {
             <div class="drawer-content flex flex-col">
                 {/* <!-- Navbar --> */}
                 <div class="w-full sticky top-0 z-10 navbar bg-white  ">
-                    <div class="flex-1 px-2 mx-2">Navbar Title</div>
-                    <div className="navbar-end">
+                    <div class="flex-1 px-2 text-center  lg:mx-2 ">
+                        Navbar Title
+                    </div>
+                    <div className="navbar-start">
                         <label
                             tabIndex="1"
                             for="drawer-sidebar"
-                            className="btn btn-ghost lg:hidden"
+                            className="btn btn-ghost  lg:hidden"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -111,6 +113,7 @@ const Navbar = ({ children }) => {
                                     </NavLink>
                                 )}
                             </li>
+                            {user && <li>{user.displayName}</li>}
                             <li>
                                 <NavLink to="/signup" className="rounded-lg">
                                     Sign Up
@@ -171,6 +174,7 @@ const Navbar = ({ children }) => {
                             Contact
                         </NavLink>
                     </li>
+                    {user && <li>{user.displayName}</li>}
                     <li>
                         {user ? (
                             <button

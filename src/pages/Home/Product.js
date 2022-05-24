@@ -31,9 +31,9 @@ const Product = ({ product }) => {
                 <div className="card-actions justify-end">
                     <button
                         onClick={() => handleClick(_id)}
-                        className="btn btn-sm mx-auto w-60 btn-primary"
+                        className="btn btn-sm mx-auto bg-[#081621]  w-60 "
                     >
-                        Purchase
+                        Buy Now
                     </button>
                 </div>
             </div>

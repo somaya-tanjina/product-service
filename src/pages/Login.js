@@ -10,6 +10,7 @@ import Loading from "../sharedComponent/Loading";
 import img from "../assets/loginimage/login.png";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { toast } from "react-toastify";
+import useToken from "../hooks/useToken";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -27,7 +28,8 @@ const Login = () => {
         useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, guser, gloading, gError] =
         useSignInWithGoogle(auth);
-    if (guser || user) {
+    const [token] = useToken(user || guser);
+    if (token) {
         navigate(from, { replace: true });
     }
     if (error || gError) {
@@ -49,10 +51,9 @@ const Login = () => {
     };
     const resetPassword = async () => {
         const email = getValues("email");
-      if (email) {
-          toast.info("Sent email");
+        if (email) {
+            toast.info("Sent email");
             await sendPasswordResetEmail(email);
-
         } else {
             return toast.info("please enter your email address");
         }
