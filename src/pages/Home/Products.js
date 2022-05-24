@@ -20,12 +20,15 @@ const Products = () => {
     }
 
     return (
-        <div>
+        <div className="px-28">
             <h1>{products.length}</h1>
-            <div className="grid grid-cols-3 gap-4">
-                {products.map((product) => (
-                    <Product key={product._id} product={product}></Product>
-                ))}
+            <div className="grid grid-cols-3 gap-8">
+                {[...products]
+                    .reverse()
+                    .slice(0, 6)
+                    .map((product) => (
+                        <Product key={product._id} product={product}></Product>
+                    ))}
             </div>
         </div>
     );
