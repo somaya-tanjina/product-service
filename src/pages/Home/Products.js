@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
+import useProducts from "../../hooks/useProducts";
 import Loading from "../../sharedComponent/Loading";
 import Product from "./Product";
 
 const Products = () => {
-    const {
-        data: products,
-        isLoading,
-        refetch,
-    } = useQuery("available", () =>
-        fetch("http://localhost:5000/products").then((res) => res.json())
-    );
+    // const {
+    //     data: products,
+    //     isLoading,
+    //     refetch,
+    // } = useQuery("available", () =>
+    //     fetch("http://localhost:5000/products").then((res) => res.json())
+    // );
+    const [data, isLoading, refetch] = useProducts();
     if (isLoading) {
         return (
             <>
@@ -21,9 +23,9 @@ const Products = () => {
 
     return (
         <div className="px-28">
-            <h1>{products.length}</h1>
+            <h1>{data.length}</h1>
             <div className="grid grid-cols-3 gap-8">
-                {[...products]
+                {[...data]
                     .reverse()
                     .slice(0, 6)
                     .map((product) => (
