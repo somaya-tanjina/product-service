@@ -30,24 +30,25 @@ const OrderModal = ({ setOrder, order,refetch }) => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+
                 if (data.success) {
                     toast.success("your order is successful");
+                     refetch();
+                     // to close the modal
+                     setOrder(null);
                 } else {
                     toast.error(" Failed to order");
                 }
             });
 
         // cal refatch
-         refetch();
-        // to close the modal
-         setOrder(null);
+          refetch();
+        // // to close the modal
+          setOrder(null);
     };
     return (
         <div>
-            {/* <label htmlFor="order-modal" className="btn modal-button">open modal</label> */}
 
-            {/* <!-- Put this part before </body> tag --> */}
             <input type="checkbox" id="order-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">

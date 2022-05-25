@@ -11,8 +11,8 @@ const Purchase = () => {
     const [data, isLoading, refetch] = useProductDetails(id);
     const emailRef = useRef("");
     const [disabled, setDisabled] = useState(false);
-    const [error, setError] = useState('');
-    const [order, setOrder]=useState(null)
+    const [error, setError] = useState("");
+    const [order, setOrder] = useState(null);
     if (isLoading) {
         return (
             <>
@@ -23,9 +23,7 @@ const Purchase = () => {
     const handlechange = (e) => {
         const val = emailRef.current.value;
 
-        if (
-            emailRef.current.value < data.minimumQuantity)
-        {
+        if (emailRef.current.value < data.minimumQuantity) {
             setError(`You cannot purchase less than ${data.minimumQuantity}`);
 
             setDisabled(true);
@@ -33,24 +31,24 @@ const Purchase = () => {
             setError(`You cannot purchase more than ${data.availableQuantity}`);
             setDisabled(true);
         } else {
-            setDisabled(false)
-            setError('')
+            setDisabled(false);
+            setError("");
         }
     };
 
     const handlePurchase = () => {
-        const totalPrice = parseInt(data.price) * parseInt(emailRef.current.value);
+        const totalPrice =
+            parseInt(data.price) * parseInt(emailRef.current.value);
         console.log(totalPrice);
         const newOrder = {
             ...data,
             price: totalPrice,
             orderQuantity: emailRef.current.value,
         };
-        setOrder(newOrder)
+        setOrder(newOrder);
         console.log(newOrder);
-
     };
-//setOrder(null)
+    //setOrder(null)
     return (
         <div className="px-4 lg:px-20">
             <h1>{id}</h1>
@@ -96,7 +94,13 @@ const Purchase = () => {
                     </label>
                 </div>
             </div>
-            {order && <OrderModal refetch={refetch}  setorder={setOrder} order ={order}></OrderModal>}
+            {order && (
+                <OrderModal
+                    refetch={refetch}
+                    setorder={setOrder}
+                    order={order}
+                ></OrderModal>
+            )}
         </div>
     );
 };
