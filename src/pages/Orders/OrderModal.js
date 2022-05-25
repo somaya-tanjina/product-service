@@ -30,25 +30,24 @@ const OrderModal = ({ setOrder, order,refetch }) => {
         })
             .then((res) => res.json())
             .then((data) => {
-
                 if (data.success) {
                     toast.success("your order is successful");
-                     refetch();
-                     // to close the modal
-                     setOrder(null);
+                    refetch();
+                    // to close the modal
+                    setOrder(null);
                 } else {
                     toast.error(" Failed to order");
                 }
             });
 
-        // cal refatch
-          refetch();
-        // // to close the modal
-          setOrder(null);
+        // // cal refatch
+           refetch();
+        // // // to close the modal
+           setOrder(null);
     };
+
     return (
         <div>
-
             <input type="checkbox" id="order-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
@@ -69,7 +68,7 @@ const OrderModal = ({ setOrder, order,refetch }) => {
                                 <input
                                     type="text"
                                     name="name"
-                                    value={ order.name}
+                                    value={order.name}
                                     class="input input-bordered input-sm"
                                 />
                             </label>

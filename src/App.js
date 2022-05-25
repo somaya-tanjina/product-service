@@ -10,6 +10,8 @@ import MyProfile from "./pages/Dashboard/MyProfile";
 import Purchase from "./pages/Orders/Purchase";
 import MyOrders from "./pages/Dashboard/MyOrders";
 import AddReviews from "./pages/Dashboard/AddReviews";
+import AllUsers from "./pages/Dashboard/AllUsers";
+import AddProduct from "./pages/Dashboard/AddProduct";
 function App() {
     return (
         <div>
@@ -47,6 +49,14 @@ function App() {
                         <Route
                             path="addreviews"
                             element={<AddReviews></AddReviews>}
+                        ></Route>
+                        <Route
+                            path="allusers"
+                            element={<AllUsers></AllUsers>}
+                        ></Route>
+                        <Route
+                            path="addproducts"
+                            element={<AddProduct/>}
                         ></Route>
                     </Route>
                 </Routes>

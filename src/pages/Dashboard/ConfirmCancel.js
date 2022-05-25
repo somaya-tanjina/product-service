@@ -30,7 +30,7 @@ const ConfirmCancel = ({ setCancelOrder, refetch, cancelOrder }) => {
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">
-                        You are going to Cancel <span>{name}</span>
+                        You are going to Cancel <span className="text-red-600">{name}</span>
                     </h3>
 
                     <div className="modal-action">

@@ -2,18 +2,17 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
-const AddReviews = () => {
+const AddProduct = () => {
     const {
         register,
         formState: { errors },
         handleSubmit,
         reset,
     } = useForm();
-
     const imagestorekey = "d8b9cf4ee8d66919eb31b8a54bb4dbea";
 
     const onSubmit = async (data) => {
-       // console.log(data.review);
+        // console.log(data.review);
         const image = data.image[0];
 
         //send image info in imgbb
@@ -29,15 +28,17 @@ const AddReviews = () => {
                 if (result.success) {
                     // create doctor info
                     const img = result.data.url;
-                    const review = {
+                    const product = {
                         name: data.name,
-                        review: data.review,
-                        rating: data.rating,
-                        img: img,
+                        price: data.price,
+                        availableQuantity: data.availableQuantity,
+                        minimumQuantity: data.minimumQuantity,
+                        description: data.description,
+                        picture: img,
                     };
-                  console.log(review);
+                    console.log(product);
 
-                    fetch("http://localhost:5000/reviews", {
+                    fetch("http://localhost:5000/products", {
                         method: "POST",
                         headers: {
                             "Content-type": "application/json",
@@ -45,17 +46,15 @@ const AddReviews = () => {
                                 "accessToken"
                             )}`,
                         },
-                        body: JSON.stringify(review),
+                        body: JSON.stringify(product),
                     })
-                      .then((res) =>res.json()
-                      )
-                      .then((inserted) => {
-
+                        .then((res) => res.json())
+                        .then((inserted) => {
                             if (inserted.insertedId) {
-                                toast.success("Review added successfully");
+                                toast.success("Product added successfully");
                                 reset();
                             } else {
-                                toast.error("Failed to add Review");
+                                toast.error("Failed to add Product");
                             }
                             console.log(inserted);
                         });
@@ -64,13 +63,13 @@ const AddReviews = () => {
     };
     return (
         <div>
-            <div className="flex items-center  justify-center">
+            <div className="flex items-center justify-center">
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <h2 className="text-3xl">Add Your Review</h2>
+                    <h2 className="text-3xl">Add Product</h2>
                     <div className="form-control w-full max-w-xs">
                         <input
                             type="text"
-                            placeholder="Your Name"
+                            placeholder="Product Name"
                             className="input input-bordered w-full max-w-xs"
                             {...register("name", {
                                 required: {
@@ -91,32 +90,64 @@ const AddReviews = () => {
                     <div className="form-control w-full max-w-xs">
                         <input
                             type="number"
-                            placeholder="rating"
+                            placeholder="price"
                             className="input input-bordered w-full max-w-xs"
-                            {...register("rating", {
+                            {...register("price", {
                                 required: {
                                     value: true,
-                                    message: "Rating i is Required",
+                                    message: "price i is Required",
                                 },
                             })}
                         />
                     </div>
-                    <div className="form-control w-full my-4 max-w-xs">
-                        <textarea
-                            {...register("review", {
+                    <div className="form-control my-4 w-full max-w-xs">
+                        <input
+                            type="number"
+                            placeholder="availableQuantity"
+                            className="input input-bordered w-full max-w-xs"
+                            {...register("availableQuantity", {
                                 required: {
                                     value: true,
-                                    message: "Name is Required",
+                                    message: "availableQuantity i is Required",
                                 },
                             })}
-                            name="review"
-                            placeholder="Your reviews"
-                            className=" border w-full  px-3"
-                        ></textarea>
+                        />
                     </div>
 
                     <div className="form-control w-full max-w-xs">
-
+                        <input
+                            type="number"
+                            placeholder="minimumQuantity"
+                            className="input input-bordered w-full max-w-xs"
+                            {...register("minimumQuantity", {
+                                required: {
+                                    value: true,
+                                    message: "minimumQuantity i is Required",
+                                },
+                            })}
+                        />
+                        <label className="label">
+                            {errors.name?.type === "required" && (
+                                <span className="label-text-alt text-red-500">
+                                    {errors.name.message}
+                                </span>
+                            )}
+                        </label>
+                    </div>
+                    <div className="form-control w-full my-4 max-w-xs">
+                        <textarea
+                            {...register("description", {
+                                required: {
+                                    value: true,
+                                    message: "description is Required",
+                                },
+                            })}
+                            name="description"
+                            placeholder="Description"
+                            className=" border w-full  px-3"
+                        ></textarea>
+                    </div>
+                    <div className="form-control w-full max-w-xs">
                         <input
                             type="file"
                             className="input input-bordered  w-full max-w-xs"
@@ -137,9 +168,9 @@ const AddReviews = () => {
                     </div>
 
                     <input
-                        className="btn btn-primary btn-sm w-full max-w-xs text-white"
+                        className="btn btn-secondary btn-sm w-full max-w-xs text-white"
                         type="submit"
-                        value=" Add Review"
+                        value=" Add Product"
                     />
                 </form>
             </div>
@@ -147,4 +178,4 @@ const AddReviews = () => {
     );
 };
 
-export default AddReviews;
+export default AddProduct;
