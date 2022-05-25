@@ -50,7 +50,7 @@ const Purchase = () => {
         console.log(newOrder);
 
     };
-
+//setOrder(null)
     return (
         <div className="px-4 lg:px-20">
             <h1>{id}</h1>
@@ -85,13 +85,7 @@ const Purchase = () => {
                         />
                     </div>
                     <p className="text-red-600">{error}</p>
-                    {/* <button
-                        disabled={disabled}
-                        onClick={handlePurchase}
-                        className="btn bg-cyan-600 hover:bg-[#00B4FF] border-cyan-600 border-none btn-sm  "
-                    >
-                        Purchase
-                    </button> */}
+
                     <label
                         disabled={disabled}
                         onClick={handlePurchase}
@@ -102,7 +96,7 @@ const Purchase = () => {
                     </label>
                 </div>
             </div>
-            {order && <OrderModal  setorder={setOrder} order ={order}></OrderModal>}
+            {order && <OrderModal refetch={refetch}  setorder={setOrder} order ={order}></OrderModal>}
         </div>
     );
 };

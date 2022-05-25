@@ -7,12 +7,13 @@ const OrderModal = ({ setOrder, order,refetch }) => {
     const [user] = useAuthState(auth);
     const handleBooking = (e) => {
         e.preventDefault();
+
         const phone = e.target.phone.value;
         const address = e.target.address.value;
-        console.log(phone, address, order.orderQuantity);
+        console.log(phone, address, order.name);
 
         const orderedItem = {
-            name: user.displayName,
+            name: order.name,
             email: user.email,
             phone,
             address,
@@ -67,7 +68,7 @@ const OrderModal = ({ setOrder, order,refetch }) => {
                                 <input
                                     type="text"
                                     name="name"
-                                    value={user ? user.displayName : ""}
+                                    value={ order.name}
                                     class="input input-bordered input-sm"
                                 />
                             </label>

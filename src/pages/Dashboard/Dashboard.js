@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+
 
 const Dashboard = () => {
+    const [user] = useAuthState(auth);
   return (
       <div class="drawer drawer-mobile">
           <input id="drawer-sidebar" type="checkbox" class="drawer-toggle" />
