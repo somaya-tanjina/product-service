@@ -102,7 +102,7 @@ const Purchase = () => {
                     </label>
                 </div>
             </div>
-            {order && <OrderModal setorder={setOrder} order ={order}></OrderModal>}
+            {order && <OrderModal  setorder={setOrder} order ={order}></OrderModal>}
         </div>
     );
 };

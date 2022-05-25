@@ -1,10 +1,47 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
-const OrderModal = ({ setOrder, order }) => {
+const OrderModal = ({ setOrder, order,refetch }) => {
     const [user] = useAuthState(auth);
-    const handleBooking = () => {};
+    const handleBooking = (e) => {
+        e.preventDefault();
+        const phone = e.target.phone.value;
+        const address = e.target.address.value;
+        console.log(phone, address, order.orderQuantity);
+
+        const orderedItem = {
+            name: user.displayName,
+            email: user.email,
+            phone,
+            address,
+            price: order.price,
+            orderQuantity: order.orderQuantity,
+        };
+
+        fetch("http://localhost:5000/orders", {
+            method: "POST",
+            body: JSON.stringify(orderedItem),
+            headers: {
+                "Content-type": "application/json",
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.success) {
+                    toast.success("your order is successful");
+                } else {
+                    toast.error(" Failed to order");
+                }
+            });
+
+        // cal refatch
+         refetch();
+        // to close the modal
+         setOrder(null);
+    };
     return (
         <div>
             {/* <label htmlFor="order-modal" className="btn modal-button">open modal</label> */}
@@ -63,7 +100,7 @@ const OrderModal = ({ setOrder, order }) => {
                                 <span>Order:</span>
                                 <input
                                     type="number"
-                                    name="Quantity"
+                                    name="quantity"
                                     value={order.orderQuantity}
                                     class="input input-bordered w-full input-sm"
                                     readOnly
@@ -88,7 +125,7 @@ const OrderModal = ({ setOrder, order }) => {
                                 <span>Address:</span>
                                 <textarea
                                     type="text"
-                                    name="name"
+                                    name="address"
                                     placeholder="Your addres"
                                     class="input input-bordered input-sm"
                                     required
