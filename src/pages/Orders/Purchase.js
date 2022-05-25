@@ -4,28 +4,15 @@ import useProductDetails from "../../hooks/useProductDetails";
 import Loading from "../../sharedComponent/Loading";
 import { toast } from "react-toastify";
 import { async } from "@firebase/util";
+import OrderModal from "./OrderModal";
 
 const Purchase = () => {
     const { id, name } = useParams();
-  const [data, isLoading, refetch] = useProductDetails(id);
-  const emailRef = useRef("");
-  const [error, setError] = useState('')
-
-  const handlePurchase = () => {
-    console.log(emailRef.current.value);
-    if (
-      emailRef.current.value < data.minimumQuantity)
-    {
-       setError("You cannot purchase less than minimum quantity");
-
-
-    } else if (emailRef.current.value > data.availableQuantity) {
-      setError("You cannot purchase more than available quantity");
-
-    }
-    return toast.error(error);
-  }
-
+    const [data, isLoading, refetch] = useProductDetails(id);
+    const emailRef = useRef("");
+    const [disabled, setDisabled] = useState(false);
+    const [error, setError] = useState('');
+    const [order, setOrder]=useState(null)
     if (isLoading) {
         return (
             <>
@@ -33,6 +20,37 @@ const Purchase = () => {
             </>
         );
     }
+    const handlechange = (e) => {
+        const val = emailRef.current.value;
+
+        if (
+            emailRef.current.value < data.minimumQuantity)
+        {
+            setError(`You cannot purchase less than ${data.minimumQuantity}`);
+
+            setDisabled(true);
+        } else if (emailRef.current.value > data.availableQuantity) {
+            setError(`You cannot purchase more than ${data.availableQuantity}`);
+            setDisabled(true);
+        } else {
+            setDisabled(false)
+            setError('')
+        }
+    };
+
+    const handlePurchase = () => {
+        const totalPrice = parseInt(data.price) * parseInt(emailRef.current.value);
+        console.log(totalPrice);
+        const newOrder = {
+            ...data,
+            price: totalPrice,
+            orderQuantity: emailRef.current.value,
+        };
+        setOrder(newOrder)
+        console.log(newOrder);
+
+    };
+
     return (
         <div className="px-4 lg:px-20">
             <h1>{id}</h1>
@@ -57,6 +75,7 @@ const Purchase = () => {
 
                     <div>
                         <input
+                            onChange={handlechange}
                             className=" my-3 border-2"
                             type="number"
                             id="quantity"
@@ -65,15 +84,25 @@ const Purchase = () => {
                             required
                         />
                     </div>
-                    <button
-                        disabled={!data.minimumQuantity}
+                    <p className="text-red-600">{error}</p>
+                    {/* <button
+                        disabled={disabled}
                         onClick={handlePurchase}
                         className="btn bg-cyan-600 hover:bg-[#00B4FF] border-cyan-600 border-none btn-sm  "
                     >
                         Purchase
-                    </button>
+                    </button> */}
+                    <label
+                        disabled={disabled}
+                        onClick={handlePurchase}
+                        htmlFor="order-modal"
+                        className="btn bg-cyan-600 hover:bg-[#00B4FF] border-cyan-600 border-none btn-sm "
+                    >
+                        Purchase
+                    </label>
                 </div>
             </div>
+            {order && <OrderModal setorder={setOrder} order ={order}></OrderModal>}
         </div>
     );
 };

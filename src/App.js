@@ -7,7 +7,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import MyProfile from "./pages/Dashboard/MyProfile";
-import Purchase from "./pages/Home/Purchase";
+import Purchase from "./pages/Orders/Purchase";
 import MyOrders from "./pages/Dashboard/MyOrders";
 function App() {
     return (
