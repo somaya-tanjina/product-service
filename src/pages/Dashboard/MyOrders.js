@@ -19,12 +19,17 @@ const MyOrders = () => {
         isLoading,
         refetch,
     } = useQuery(["userOrder", user.email], () =>
-        fetch(`http://localhost:5000/orders?email=${user.email}`, {
-            method: "GET",
-            headers: {
-                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-        }).then((res) => {
+        fetch(
+            `https://frozen-everglades-15145.herokuapp.com/orders?email=${user.email}`,
+            {
+                method: "GET",
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem(
+                        "accessToken"
+                    )}`,
+                },
+            }
+        ).then((res) => {
             console.log("res", res);
             if (res.status === 401 || res.status === 403) {
                 signOut(auth);
@@ -43,7 +48,7 @@ const MyOrders = () => {
     //     if (user) {
     //         console.log(user);
 
-    //         fetch(`http://localhost:5000/orders?email=${user.email}`, {
+    //         fetch(`https://frozen-everglades-15145.herokuapp.com/orders?email=${user.email}`, {
     //             method: "GET",
     //             headers: {
     //                 authorization: `Bearer ${localStorage.getItem(

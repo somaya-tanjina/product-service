@@ -4,12 +4,17 @@ import { toast } from "react-toastify";
 const SignleUser = ({ index, user, refetch }) => {
     const { email, role } = user;
     const makeAdmin = () => {
-        fetch(`http://localhost:5000/users/admin/${email}`, {
-            method: "PUT",
-            headers: {
-                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-        })
+        fetch(
+            `https://frozen-everglades-15145.herokuapp.com/users/admin/${email}`,
+            {
+                method: "PUT",
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem(
+                        "accessToken"
+                    )}`,
+                },
+            }
+        )
             .then((res) => {
                 //step:4 of make admin
                 if (res.status === 403) {
@@ -35,8 +40,8 @@ const SignleUser = ({ index, user, refetch }) => {
                 </button> */}
                 {role !== "admin" && (
                     <button onClick={makeAdmin} class="btn btn-xs">
-                    Make Admin
-                </button>
+                        Make Admin
+                    </button>
                 )}
             </td>
             <td>

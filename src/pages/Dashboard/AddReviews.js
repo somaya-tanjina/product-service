@@ -13,7 +13,7 @@ const AddReviews = () => {
     const imagestorekey = "d8b9cf4ee8d66919eb31b8a54bb4dbea";
 
     const onSubmit = async (data) => {
-       // console.log(data.review);
+        // console.log(data.review);
         const image = data.image[0];
 
         //send image info in imgbb
@@ -35,22 +35,23 @@ const AddReviews = () => {
                         rating: data.rating,
                         img: img,
                     };
-                  console.log(review);
+                    console.log(review);
 
-                    fetch("http://localhost:5000/reviews", {
-                        method: "POST",
-                        headers: {
-                            "Content-type": "application/json",
-                            authorization: `Bearer ${localStorage.getItem(
-                                "accessToken"
-                            )}`,
-                        },
-                        body: JSON.stringify(review),
-                    })
-                      .then((res) =>res.json()
-                      )
-                      .then((inserted) => {
-
+                    fetch(
+                        "https://frozen-everglades-15145.herokuapp.com/reviews",
+                        {
+                            method: "POST",
+                            headers: {
+                                "Content-type": "application/json",
+                                authorization: `Bearer ${localStorage.getItem(
+                                    "accessToken"
+                                )}`,
+                            },
+                            body: JSON.stringify(review),
+                        }
+                    )
+                        .then((res) => res.json())
+                        .then((inserted) => {
                             if (inserted.insertedId) {
                                 toast.success("Review added successfully");
                                 reset();

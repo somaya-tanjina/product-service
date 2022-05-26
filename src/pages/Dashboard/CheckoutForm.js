@@ -12,14 +12,19 @@ const CheckoutForm = ({ payorder }) => {
     const { _id, price, email } = payorder;
 
     useEffect(() => {
-        fetch("http://localhost:5000/create-payment-intent", {
-            method: "POST",
-            body: JSON.stringify({ price }),
-            headers: {
-                "Content-type": "application/json",
-                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-        })
+        fetch(
+            "https://frozen-everglades-15145.herokuapp.com/create-payment-intent",
+            {
+                method: "POST",
+                body: JSON.stringify({ price }),
+                headers: {
+                    "Content-type": "application/json",
+                    authorization: `Bearer ${localStorage.getItem(
+                        "accessToken"
+                    )}`,
+                },
+            }
+        )
             .then((res) => res.json())
             .then((data) => {
                 if (data?.clientSecret) {
@@ -66,16 +71,19 @@ const CheckoutForm = ({ payorder }) => {
                 order: _id,
                 transactionId: paymentIntent.id,
             };
-            fetch(`http://localhost:5000/order/${_id}`, {
-                method: "PATCH",
-                body: JSON.stringify(payment),
-                headers: {
-                    "Content-type": "application/json",
-                    authorization: `Bearer ${localStorage.getItem(
-                        "accessToken"
-                    )}`,
-                },
-            })
+            fetch(
+                `https://frozen-everglades-15145.herokuapp.com/order/${_id}`,
+                {
+                    method: "PATCH",
+                    body: JSON.stringify(payment),
+                    headers: {
+                        "Content-type": "application/json",
+                        authorization: `Bearer ${localStorage.getItem(
+                            "accessToken"
+                        )}`,
+                    },
+                }
+            )
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data);

@@ -20,7 +20,9 @@ const Reviews = () => {
         isLoading,
         refetch,
     } = useQuery("reviews", () =>
-        fetch("http://localhost:5000/reviews").then((res) => res.json())
+        fetch("https://frozen-everglades-15145.herokuapp.com/reviews").then(
+            (res) => res.json()
+        )
     );
     if (isLoading) {
         return <Loading></Loading>;

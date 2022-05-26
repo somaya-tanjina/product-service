@@ -21,12 +21,17 @@ const MyProfile = () => {
         isLoading,
         refetch,
     } = useQuery(["userProfile", user.email], () =>
-        fetch(`http://localhost:5000/user/${user.email}`, {
-            method: "GET",
-            headers: {
-                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-        }).then((res) => res.json())
+        fetch(
+            `https://frozen-everglades-15145.herokuapp.com/user/${user.email}`,
+            {
+                method: "GET",
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem(
+                        "accessToken"
+                    )}`,
+                },
+            }
+        ).then((res) => res.json())
     );
 
     if (isLoading) {
@@ -41,14 +46,19 @@ const MyProfile = () => {
             education: data.education,
         };
 
-        fetch(`http://localhost:5000/user/${user.email}`, {
-            method: "PATCH",
-            body: JSON.stringify(updatedProfile),
-            headers: {
-                "Content-type": "application/json",
-                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-        })
+        fetch(
+            `https://frozen-everglades-15145.herokuapp.com/user/${user.email}`,
+            {
+                method: "PATCH",
+                body: JSON.stringify(updatedProfile),
+                headers: {
+                    "Content-type": "application/json",
+                    authorization: `Bearer ${localStorage.getItem(
+                        "accessToken"
+                    )}`,
+                },
+            }
+        )
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);

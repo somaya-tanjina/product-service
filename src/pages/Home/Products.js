@@ -10,7 +10,7 @@ const Products = () => {
     //     isLoading,
     //     refetch,
     // } = useQuery("available", () =>
-    //     fetch("http://localhost:5000/products").then((res) => res.json())
+    //     fetch("https://frozen-everglades-15145.herokuapp.com/products").then((res) => res.json())
     // );
     const [data, isLoading, refetch] = useProducts();
     if (isLoading) {

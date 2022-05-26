@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const DeleteProduct = ({ setdeleteProduct, refetch, deleteProduct }) => {
     const { _id, name } = deleteProduct;
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`https://frozen-everglades-15145.herokuapp.com/product/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-type": "application/json",
@@ -55,7 +55,7 @@ const DeleteProduct = ({ setdeleteProduct, refetch, deleteProduct }) => {
                 </div>
             </div>
 
-            
+
         </div>
     );
 };

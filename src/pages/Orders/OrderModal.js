@@ -3,7 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
-const OrderModal = ({ setOrder, order,refetch }) => {
+const OrderModal = ({ setOrder, order, refetch }) => {
     const [user] = useAuthState(auth);
     const handleBooking = (e) => {
         e.preventDefault();
@@ -21,7 +21,7 @@ const OrderModal = ({ setOrder, order,refetch }) => {
             orderQuantity: order.orderQuantity,
         };
 
-        fetch("http://localhost:5000/orders", {
+        fetch("https://frozen-everglades-15145.herokuapp.com/orders", {
             method: "POST",
             body: JSON.stringify(orderedItem),
             headers: {
@@ -41,9 +41,9 @@ const OrderModal = ({ setOrder, order,refetch }) => {
             });
 
         // // cal refatch
-           refetch();
+        refetch();
         // // // to close the modal
-           setOrder(null);
+        setOrder(null);
     };
 
     return (

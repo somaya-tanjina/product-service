@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Thrive Manufacture
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [https://manufacture-7c7b0.web.app/](https://manufacture-7c7b0.web.app/).
 
 ## Available Scripts
 
@@ -8,20 +8,20 @@ In the project directory, you can run:
 
 ### Features
 
-* Easy navigation
-* This is Mobile Friendly or Responsive Design;
-* One can get Live chat service
-* Know about Laptop of different brand
-* Easy navigation
+-   Easy navigation
+-   This is Mobile Friendly or Responsive Design;
+-   One can get Live chat service
+-   Know about Laptop of different brand
+-   Easy navigation
 
 ### FUnctionality
 
-* This applicatin is authenticated by React Firebase Hooks
-* Use Swiper js for slider
-* Use Swiper js for slider
-* use react toasttify for confirmation
-* use react Taulwind and Daisyui for design
-* use Stripe for payment
+-   This applicatin is authenticated by React Firebase Hooks
+-   Use Swiper js for slider
+-   Use Swiper js for slider
+-   use react toasttify for confirmation
+-   use react Taulwind and Daisyui for design
+-   use Stripe for
 
 ### `npm test`
 

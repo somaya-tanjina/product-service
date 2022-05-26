@@ -2,11 +2,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 const ManageSignleOrder = ({ order, index, setdeleteProduct }) => {
-
-
     const handleshipped = (id) => {
         const status = { status: "shipped" };
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://frozen-everglades-15145.herokuapp.com/orders/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

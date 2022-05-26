@@ -5,7 +5,7 @@ const ConfirmDelete = ({ setCancelOrder, refetch, cancelOrder }) => {
     const { _id, name } = cancelOrder;
 
     const handleCancel = (id) => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://frozen-everglades-15145.herokuapp.com/order/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-type": "application/json",
@@ -30,7 +30,8 @@ const ConfirmDelete = ({ setCancelOrder, refetch, cancelOrder }) => {
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">
-                        You are going to Cancel <span className="text-red-600">{name}</span>
+                        You are going to Cancel{" "}
+                        <span className="text-red-600">{name}</span>
                     </h3>
 
                     <div className="modal-action">

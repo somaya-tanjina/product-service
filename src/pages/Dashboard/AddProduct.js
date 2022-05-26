@@ -38,16 +38,19 @@ const AddProduct = () => {
                     };
                     console.log(product);
 
-                    fetch("http://localhost:5000/products", {
-                        method: "POST",
-                        headers: {
-                            "Content-type": "application/json",
-                            authorization: `Bearer ${localStorage.getItem(
-                                "accessToken"
-                            )}`,
-                        },
-                        body: JSON.stringify(product),
-                    })
+                    fetch(
+                        "https://frozen-everglades-15145.herokuapp.com/products",
+                        {
+                            method: "POST",
+                            headers: {
+                                "Content-type": "application/json",
+                                authorization: `Bearer ${localStorage.getItem(
+                                    "accessToken"
+                                )}`,
+                            },
+                            body: JSON.stringify(product),
+                        }
+                    )
                         .then((res) => res.json())
                         .then((inserted) => {
                             if (inserted.insertedId) {
