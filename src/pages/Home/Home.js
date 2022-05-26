@@ -1,6 +1,9 @@
 import React from 'react';
+import Footer from '../../sharedComponent/Footer';
 import Banner from './Banner';
+import BussinessSummery from './BussinessSummery';
 import FeaturedCategory from './FeaturedCategory';
+import JoinNewsletter from './JoinNewsletter';
 import Products from './Products';
 import Reviews from './Reviews';
 
@@ -11,6 +14,9 @@ const Home = () => {
           <FeaturedCategory></FeaturedCategory>
       <Products></Products>
       <Reviews></Reviews>
+      <BussinessSummery></BussinessSummery>
+      <JoinNewsletter></JoinNewsletter>
+
       </div>
   );
 };

@@ -11,11 +11,11 @@ const Navbar = ({ children }) => {
         localStorage.removeItem("accessToken");
     };
     return (
-        <div class="drawer drawer-end">
+        <div class="drawer drawer-end ">
             <input id="my-drawer-3" type="checkbox" class="drawer-toggle h-6" />
             <div class="drawer-content flex flex-col">
                 {/* <!-- Navbar --> */}
-                <div class="w-full sticky top-0 z-10 navbar bg-white  ">
+                <div class="w-full sticky top-0 z-10 navbar  bg-white  ">
                     <div class="flex-1 px-2 text-center  lg:mx-2 ">
                         Navbar Title
                     </div>

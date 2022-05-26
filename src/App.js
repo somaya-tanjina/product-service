@@ -12,6 +12,7 @@ import MyOrders from "./pages/Dashboard/MyOrders";
 import AddReviews from "./pages/Dashboard/AddReviews";
 import AllUsers from "./pages/Dashboard/AllUsers";
 import AddProduct from "./pages/Dashboard/AddProduct";
+import Footer from "./sharedComponent/Footer";
 function App() {
     return (
         <div>
@@ -56,12 +57,13 @@ function App() {
                         ></Route>
                         <Route
                             path="addproducts"
-                            element={<AddProduct/>}
+                            element={<AddProduct />}
                         ></Route>
                     </Route>
                 </Routes>
                 <ToastContainer />
             </Navbar>
+            <Footer></Footer>
         </div>
     );
 }

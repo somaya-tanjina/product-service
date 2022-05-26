@@ -63,8 +63,8 @@ const AddReviews = () => {
             });
     };
     return (
-        <div>
-            <div className="flex items-center  justify-center">
+        <div className=" ">
+            <div className="flex items-center   justify-center">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h2 className="text-3xl">Add Your Review</h2>
                     <div className="form-control w-full max-w-xs">
@@ -116,7 +116,6 @@ const AddReviews = () => {
                     </div>
 
                     <div className="form-control w-full max-w-xs">
-
                         <input
                             type="file"
                             className="input input-bordered  w-full max-w-xs"
