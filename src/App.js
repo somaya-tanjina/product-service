@@ -10,11 +10,11 @@ import MyProfile from "./pages/Dashboard/MyProfile";
 import Purchase from "./pages/Orders/Purchase";
 import MyOrders from "./pages/Dashboard/MyOrders";
 import AddReviews from "./pages/Dashboard/AddReviews";
-import AllUsers from "./pages/Dashboard/AllUsers";
 import AddProduct from "./pages/Dashboard/AddProduct";
 import Footer from "./sharedComponent/Footer";
 import ManageAllOrders from "./pages/Dashboard/ManageAllOrders";
 import ManageProducts from "./pages/Dashboard/ManageProducts";
+import MakeAdmin from "./pages/Dashboard/MakeAdmin";
 function App() {
     return (
         <div>
@@ -54,8 +54,8 @@ function App() {
                             element={<AddReviews></AddReviews>}
                         ></Route>
                         <Route
-                            path="allusers"
-                            element={<AllUsers></AllUsers>}
+                            path="makeAdmin"
+                            element={<MakeAdmin/>}
                         ></Route>
                         <Route
                             path="addproducts"

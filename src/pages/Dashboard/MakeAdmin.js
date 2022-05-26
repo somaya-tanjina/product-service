@@ -3,13 +3,13 @@ import { useQuery } from 'react-query';
 import Loading from '../../sharedComponent/Loading';
 import SignleUser from './SignleUser';
 
-const AllUsers = () => {
+const MakeAdmin = () => {
   const {
       data: allusers,
       isLoading,
       refetch,
   } = useQuery("users", () =>
-      fetch("http://localhost:5000/user", {
+      fetch("http://localhost:5000/users", {
           method: "GET",
           headers: {
               authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -50,4 +50,4 @@ const AllUsers = () => {
   );
 };
 
-export default AllUsers;
+export default MakeAdmin;

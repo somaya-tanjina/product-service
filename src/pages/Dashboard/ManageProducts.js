@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import useProducts from '../../hooks/useProducts';
 import Loading from '../../sharedComponent/Loading';
-import DeleteOrder from './DeleteOrder';
+import DeleteProduct from './DeleteProduct';
+
 import ManagesingleProduct from './ManagesingleProduct';
 
 const ManageProducts = () => {
   const [data, isLoading, refetch] = useProducts()
-  const [deleteOrder, setdeleteOrder] = useState(null);
+  const [deleteProduct, setdeleteProduct] = useState(null);
   if (isLoading) {
       return (
           <>
@@ -33,7 +34,7 @@ const ManageProducts = () => {
                           <tbody>
                               {data.map((product, index) => (
                                   <ManagesingleProduct
-                                      setdeleteOrder={setdeleteOrder}
+                                      setdeleteProduct={setdeleteProduct}
                                       product={product}
                                       key={index}
                                       index={index}
@@ -43,12 +44,12 @@ const ManageProducts = () => {
                       </table>
                   </div>
               </div>
-              {deleteOrder && (
-                  <DeleteOrder
-                      setdeleteOrder={setdeleteOrder}
+              {deleteProduct && (
+                  <DeleteProduct
+                      setdeleteProduct={setdeleteProduct}
                       refetch={refetch}
-                      cancelOrder={deleteOrder}
-                  ></DeleteOrder>
+                      deleteProduct={deleteProduct}
+                  ></DeleteProduct>
               )}
           </div>
       </div>

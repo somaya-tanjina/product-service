@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-const ManagesingleProduct = ({ product, index, setdeleteproduct }) => {
+const ManagesingleProduct = ({ setdeleteProduct, product, index }) => {
     return (
         <tr>
             <th>{index + 1}</th>
@@ -14,12 +14,19 @@ const ManagesingleProduct = ({ product, index, setdeleteproduct }) => {
             <td>{product.email}</td>
             <td className="flex ">
                 <label
+                    onClick={() => setdeleteProduct(product)}
+                    htmlFor="delete-product-modal"
+                    className="btn  btn-error btn-sm"
+                >
+                    <FontAwesomeIcon icon={faTrash} /> Delete
+                </label>
+                {/* <label
                     onClick={() => setdeleteproduct(product)}
                     htmlFor="cancel-modal"
                     className="btn btn-sm btn-error"
                 >
                     <FontAwesomeIcon icon={faTrash} /> open modal
-                </label>
+                </label> */}
                 <button className="btn btn-sm ml-3">Update</button>
             </td>
         </tr>
