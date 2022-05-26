@@ -1,8 +1,23 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { Link } from 'react-router-dom';
 const ManageSignleOrder = ({ order, index, setdeleteProduct }) => {
+
+
+    const handleshipped = (id) => {
+        const status = { status: "shipped" };
+        fetch(`http://localhost:5000/orders/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+            body: JSON.stringify(status),
+        })
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+    };
+
     return (
         <tr>
             <th>{index + 1}</th>
@@ -14,9 +29,20 @@ const ManageSignleOrder = ({ order, index, setdeleteProduct }) => {
             <td>{order.email}</td>
             <td className="flex ">
                 {order.paid && (
-                    <button className="btn btn-secondary btn-sm">
-                        Pending
-                    </button>
+                    <>
+                        {order?.status ? (
+                            <button className="btn btn-secondary btn-sm">
+                                shipped
+                            </button>
+                        ) : (
+                            <button
+                                onClick={() => handleshipped(order._id)}
+                                className="btn btn-secondary btn-sm"
+                            >
+                                pending
+                            </button>
+                        )}
+                    </>
                 )}
                 {!order.paid && (
                     <>

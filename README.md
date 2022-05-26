@@ -6,13 +6,22 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Easy navigation
+* This is Mobile Friendly or Responsive Design;
+* One can get Live chat service
+* Know about Laptop of different brand
+* Easy navigation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### FUnctionality
+
+* This applicatin is authenticated by React Firebase Hooks
+* Use Swiper js for slider
+* Use Swiper js for slider
+* use react toasttify for confirmation
+* use react Taulwind and Daisyui for design
+* use Stripe for payment
 
 ### `npm test`
 

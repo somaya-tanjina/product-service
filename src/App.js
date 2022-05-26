@@ -16,7 +16,7 @@ import ManageAllOrders from "./pages/Dashboard/ManageAllOrders";
 import ManageProducts from "./pages/Dashboard/ManageProducts";
 import MakeAdmin from "./pages/Dashboard/MakeAdmin";
 import RequiredAdmin from "./authentication/RequiredAdmin";
-import Payment from "./pages/Dashboard/Payment";
+
 function App() {
     return (
         <div>

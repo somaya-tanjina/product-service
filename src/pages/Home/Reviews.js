@@ -86,16 +86,14 @@ const Reviews = () => {
                                             alt=""
                                         />
                                     </p>
-                                    <p>
+                                    <p className="text-yellow-500">
                                         {[
-                                            ...Array(
-                                                parseInt(review.rating)
-                                            ).map((start) => (
-                                                <FontAwesomeIcon
-                                                    icon={faStar}
-                                                ></FontAwesomeIcon>
-                                            )),
-                                        ]}{" "}
+                                            ...Array(parseInt(review.rating)),
+                                        ].map((start) => (
+                                            <FontAwesomeIcon
+                                                icon={faStar}
+                                            ></FontAwesomeIcon>
+                                        ))}
                                     </p>
                                 </div>
                             </SwiperSlide>

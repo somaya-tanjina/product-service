@@ -5,7 +5,11 @@ import Login from "../../pages/Login";
 import About from "../../pages/About";
 import Signup from "../../pages/Signup";
 import Payment from "../../pages/Dashboard/Payment";
-//import Purchase from "../../pages/Home/Purchase";
+import NotFoundPage from "../../pages/NotFoundPage";
+import MyPortFolio from "../../pages/MyPortFolio";
+import Blogs from "../../pages/Blogs";
+
+
 
 export const PublicRout = [
     { path: "/", name: "Home", Component: Home },
@@ -14,4 +18,7 @@ export const PublicRout = [
     { path: "/about", name: "About", Component: About },
     { path: "/login", name: "Login", Component: Login },
     { path: "/signup", name: "Signup", Component: Signup },
+    { path: "/myportfolio", name: "MyPortfolio", Component: MyPortFolio },
+    { path: "/blogs", name: "Blogs", Component: Blogs },
+    { path: "/*", name: "NotFound", Component: NotFoundPage },
 ];
