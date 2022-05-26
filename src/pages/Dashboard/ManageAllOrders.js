@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../../sharedComponent/Loading';
+import DeleteOrder from './DeleteOrder';
+
 
 import ManageSignleOrder from './ManageSignleOrder';
 
 const ManageAllOrders = () => {
+    const [deleteProduct, setdeleteProduct] = useState(null);
 
    const {
        data: allorders,
@@ -42,7 +45,7 @@ const ManageAllOrders = () => {
                           <tbody>
                               {allorders.map((order, index) => (
                                   <ManageSignleOrder
-                                     
+                                      setdeleteProduct={setdeleteProduct}
                                       order={order}
                                       key={index}
                                       index={index}
@@ -52,7 +55,13 @@ const ManageAllOrders = () => {
                       </table>
                   </div>
               </div>
-
+              {deleteProduct && (
+                  <DeleteOrder
+                      setdeleteProduct={setdeleteProduct}
+                      refetch={refetch}
+                      deleteProduct={deleteProduct}
+                  ></DeleteOrder>
+              )}
           </div>
       </div>
   );

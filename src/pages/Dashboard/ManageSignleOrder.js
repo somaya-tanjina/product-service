@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { Link } from 'react-router-dom';
-const ManageSignleOrder = ({ order, index}) => {
+const ManageSignleOrder = ({ order, index, setdeleteProduct }) => {
     return (
         <tr>
             <th>{index + 1}</th>
@@ -13,12 +13,23 @@ const ManageSignleOrder = ({ order, index}) => {
             </td>
             <td>{order.email}</td>
             <td className="flex ">
-                <label htmlFor="cancel-modal" className="btn btn-sm btn-error">
-                    <FontAwesomeIcon icon={faTrash} /> open modal
-                </label>
-                <Link to=''>
-                    <button className="btn btn-sm ml-3">PAY</button>
-                </Link>
+                {order.paid && (
+                    <button className="btn btn-secondary btn-sm">
+                        Pending
+                    </button>
+                )}
+                {!order.paid && (
+                    <>
+                        <label
+                            onClick={() => setdeleteProduct(order)}
+                            htmlFor="delete-product-modal"
+                            className="btn  btn-error btn-sm"
+                        >
+                            <FontAwesomeIcon icon={faTrash} /> Delete
+                        </label>
+                        <p className="text-xl font-bold text-red-600">Unpaid</p>
+                    </>
+                )}
             </td>
         </tr>
     );

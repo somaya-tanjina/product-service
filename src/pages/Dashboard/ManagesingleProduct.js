@@ -11,7 +11,6 @@ const ManagesingleProduct = ({ setdeleteProduct, product, index }) => {
                     ? product.name.slice(0, 16) + "..."
                     : product.name}
             </td>
-            <td>{product.email}</td>
             <td className="flex ">
                 <label
                     onClick={() => setdeleteProduct(product)}
@@ -20,13 +19,7 @@ const ManagesingleProduct = ({ setdeleteProduct, product, index }) => {
                 >
                     <FontAwesomeIcon icon={faTrash} /> Delete
                 </label>
-                {/* <label
-                    onClick={() => setdeleteproduct(product)}
-                    htmlFor="cancel-modal"
-                    className="btn btn-sm btn-error"
-                >
-                    <FontAwesomeIcon icon={faTrash} /> open modal
-                </label> */}
+                
                 <button className="btn btn-sm ml-3">Update</button>
             </td>
         </tr>

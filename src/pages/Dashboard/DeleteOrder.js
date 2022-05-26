@@ -1,10 +1,10 @@
-import React from 'react';
-import { toast } from 'react-toastify';
+import React from "react";
+import { toast } from "react-toastify";
 
-const DeleteProduct = ({ setdeleteProduct, refetch, deleteProduct }) => {
+const DeleteOrder = ({ setdeleteProduct, refetch, deleteProduct }) => {
     const { _id, name } = deleteProduct;
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`http://localhost:5000/orders/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-type": "application/json",
@@ -42,10 +42,9 @@ const DeleteProduct = ({ setdeleteProduct, refetch, deleteProduct }) => {
                             htmlFor="delete-product-modal"
                             className="btn btn-error btn-sm"
                         >
-                            Confirm Delete
+                            Delete Order
                         </label>
                         <label
-
                             htmlFor="delete-product-modal"
                             className="btn btn-warning btn-sm"
                         >
@@ -54,10 +53,8 @@ const DeleteProduct = ({ setdeleteProduct, refetch, deleteProduct }) => {
                     </div>
                 </div>
             </div>
-
-            
         </div>
     );
 };
 
-export default DeleteProduct;
+export default DeleteOrder;

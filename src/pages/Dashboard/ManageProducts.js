@@ -25,9 +25,8 @@ const ManageProducts = () => {
                           {/* <!-- head --> */}
                           <thead>
                               <tr>
-                                  <th></th>
+                                  <th>Index</th>
                                   <th>Name</th>
-                                  <th>User</th>
                                   <th>Action</th>
                               </tr>
                           </thead>
