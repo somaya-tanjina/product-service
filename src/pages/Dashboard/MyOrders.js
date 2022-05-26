@@ -5,7 +5,8 @@ import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../../sharedComponent/Loading";
-import ConfirmCancel from "./ConfirmCancel";
+
+import ConfirmDelete from "./ConfirmDelete";
 import SingleOrder from "./SingleOrder";
 
 const MyOrders = () => {
@@ -95,11 +96,11 @@ const MyOrders = () => {
                 </div>
             </div>
             {cancelOrder && (
-                <ConfirmCancel
+                <ConfirmDelete
                     setCancelOrder={setCancelOrder}
                     refetch={refetch}
                     cancelOrder={cancelOrder}
-                ></ConfirmCancel>
+                ></ConfirmDelete>
             )}
         </div>
     );

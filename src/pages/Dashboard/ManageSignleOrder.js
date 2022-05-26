@@ -1,30 +1,29 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-
-const SingleOrder = ({ index, myorder, setCancelOrder }) => {
+const ManageSignleOrder = ({ order, index}) => {
     return (
         <tr>
             <th>{index + 1}</th>
-            <td title={myorder.name}>
-                {myorder.name.length > 20
-                    ? myorder.name.slice(0, 16) + "..."
-                    : myorder.name}
+            <td title={order.name}>
+                {order.name.length > 20
+                    ? order.name.slice(0, 16) + "..."
+                    : order.name}
             </td>
-            <td>{myorder.email}</td>
+            <td>{order.email}</td>
             <td className="flex ">
                 <label
-                    onClick={() => setCancelOrder(myorder)}
+                   
                     htmlFor="cancel-modal"
                     className="btn btn-sm btn-error"
                 >
                     <FontAwesomeIcon icon={faTrash} /> open modal
                 </label>
-
+                <button className="btn btn-sm btn-error">DELETE</button>
                 <button className="btn btn-sm ml-3">PAY</button>
             </td>
         </tr>
     );
 };
 
-export default SingleOrder;
+export default ManageSignleOrder;

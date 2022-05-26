@@ -1,11 +1,11 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-const ConfirmCancel = ({ setCancelOrder, refetch, cancelOrder }) => {
+const ConfirmDelete = ({ setCancelOrder, refetch, cancelOrder }) => {
     const { _id, name } = cancelOrder;
 
     const handleCancel = (id) => {
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`http://localhost:5000/order/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-type": "application/json",
@@ -51,4 +51,4 @@ const ConfirmCancel = ({ setCancelOrder, refetch, cancelOrder }) => {
     );
 };
 
-export default ConfirmCancel;
+export default ConfirmDelete;

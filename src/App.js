@@ -13,6 +13,8 @@ import AddReviews from "./pages/Dashboard/AddReviews";
 import AllUsers from "./pages/Dashboard/AllUsers";
 import AddProduct from "./pages/Dashboard/AddProduct";
 import Footer from "./sharedComponent/Footer";
+import ManageAllOrders from "./pages/Dashboard/ManageAllOrders";
+import ManageProducts from "./pages/Dashboard/ManageProducts";
 function App() {
     return (
         <div>
@@ -58,6 +60,14 @@ function App() {
                         <Route
                             path="addproducts"
                             element={<AddProduct />}
+                        ></Route>
+                        <Route
+                            path="manageAllOrders"
+                            element={<ManageAllOrders />}
+                        ></Route>
+                        <Route
+                            path="manageProducts"
+                            element={<ManageProducts />}
                         ></Route>
                     </Route>
                 </Routes>
