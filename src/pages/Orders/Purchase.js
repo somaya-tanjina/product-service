@@ -97,7 +97,7 @@ const Purchase = () => {
             {order && (
                 <OrderModal
                     refetch={refetch}
-                    setorder={setOrder}
+                    setOrder={setOrder}
                     order={order}
                 ></OrderModal>
             )}

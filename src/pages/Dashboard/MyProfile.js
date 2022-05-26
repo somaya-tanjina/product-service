@@ -53,6 +53,7 @@ const MyProfile = () => {
             .then((data) => {
                 console.log(data);
             });
+        refetch();
     };
 
     return (
@@ -92,7 +93,7 @@ const MyProfile = () => {
                         <div className="form-control w-full max-w-xs">
                             <input
                                 type="text"
-                                placeholder="Your phone"
+                                placeholder="Your Name"
                                 className="input input-bordered w-full max-w-xs"
                                 {...register("name", {
                                     required: {

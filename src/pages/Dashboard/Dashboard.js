@@ -2,10 +2,13 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import useAdmin from '../../hooks/useAdmin';
 
 
 const Dashboard = () => {
     const [user] = useAuthState(auth);
+
+     const [admin] = useAdmin(user)
   return (
       <div class="drawer drawer-mobile">
           <input id="drawer-sidebar" type="checkbox" class="drawer-toggle" />
@@ -21,24 +24,40 @@ const Dashboard = () => {
                   <li>
                       <Link to="/dashboard">My Profile</Link>
                   </li>
-                  <li>
-                      <Link to="/dashboard/myOrders">My Orders</Link>
-                  </li>
-                  <li>
-                      <Link to="/dashboard/addreviews">Add Reviews</Link>
-                  </li>
-                  <li>
-                      <Link to="/dashboard/makeAdmin">Make Admin</Link>
-                  </li>
-                  <li>
-                      <Link to="/dashboard/addproducts">Add Products</Link>
-                  </li>
-                  <li>
-                      <Link to="/dashboard/manageAllOrders">Manage All Orders</Link>
-                  </li>
-                  <li>
-                      <Link to="/dashboard/manageProducts">Manage Products</Link>
-                  </li>
+                  {!admin && (
+                      <>
+                          <li>
+                              <Link to="/dashboard/myOrders">My Orders</Link>
+                          </li>
+                          <li>
+                              <Link to="/dashboard/addreviews">
+                                  Add Reviews
+                              </Link>
+                          </li>
+                      </>
+                  )}
+                  {admin && (
+                      <>
+                          <li>
+                              <Link to="/dashboard/makeAdmin">Make Admin</Link>
+                          </li>
+                          <li>
+                              <Link to="/dashboard/addproducts">
+                                  Add Products
+                              </Link>
+                          </li>
+                          <li>
+                              <Link to="/dashboard/manageAllOrders">
+                                  Manage All Orders
+                              </Link>
+                          </li>
+                          <li>
+                              <Link to="/dashboard/manageProducts">
+                                  Manage Products
+                              </Link>
+                          </li>
+                      </>
+                  )}
                   {/* {admin && (
                       <>
                           <li>

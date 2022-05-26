@@ -68,6 +68,11 @@ const Reviews = () => {
                                             <img src={review.img} alt="" />
                                         </div>
                                     </div>
+                                    <div>
+                                        <p className="font-bold text-blue-800">
+                                            {review.name}
+                                        </p>
+                                    </div>
                                     <p className="italic">
                                         <img
                                             className="inline-block pr-4"
@@ -82,10 +87,15 @@ const Reviews = () => {
                                         />
                                     </p>
                                     <p>
-                                        {parseInt(review.rating)}{" "}
-                                        <FontAwesomeIcon
-                                            icon={faStar}
-                                        ></FontAwesomeIcon>
+                                        {[
+                                            ...Array(
+                                                parseInt(review.rating)
+                                            ).map((start) => (
+                                                <FontAwesomeIcon
+                                                    icon={faStar}
+                                                ></FontAwesomeIcon>
+                                            )),
+                                        ]}{" "}
                                     </p>
                                 </div>
                             </SwiperSlide>

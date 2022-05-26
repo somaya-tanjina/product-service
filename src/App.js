@@ -15,6 +15,8 @@ import Footer from "./sharedComponent/Footer";
 import ManageAllOrders from "./pages/Dashboard/ManageAllOrders";
 import ManageProducts from "./pages/Dashboard/ManageProducts";
 import MakeAdmin from "./pages/Dashboard/MakeAdmin";
+import RequiredAdmin from "./authentication/RequiredAdmin";
+import Payment from "./pages/Dashboard/Payment";
 function App() {
     return (
         <div>
@@ -53,21 +55,38 @@ function App() {
                             path="addreviews"
                             element={<AddReviews></AddReviews>}
                         ></Route>
+
                         <Route
                             path="makeAdmin"
-                            element={<MakeAdmin/>}
+                            element={
+                                <RequiredAdmin>
+                                    <MakeAdmin />
+                                </RequiredAdmin>
+                            }
                         ></Route>
                         <Route
                             path="addproducts"
-                            element={<AddProduct />}
+                            element={
+                                <RequiredAdmin>
+                                    <AddProduct />
+                                </RequiredAdmin>
+                            }
                         ></Route>
                         <Route
                             path="manageAllOrders"
-                            element={<ManageAllOrders />}
+                            element={
+                                <RequiredAdmin>
+                                    <ManageAllOrders />
+                                </RequiredAdmin>
+                            }
                         ></Route>
                         <Route
                             path="manageProducts"
-                            element={<ManageProducts />}
+                            element={
+                                <RequiredAdmin>
+                                    <ManageProducts />
+                                </RequiredAdmin>
+                            }
                         ></Route>
                     </Route>
                 </Routes>
